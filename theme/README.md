@@ -160,6 +160,17 @@ template-parts/
 
 ---
 
+## Plugin personalizado
+
+Como punto extra, se creó un plugin personalizado para registrar el Custom Post Type Productos.
+
+Ruta:
+
+```text
+plugins/vgs-productos/vgs-productos.php
+
+---
+
 ## Autor
 
 Isaac Carrasquel

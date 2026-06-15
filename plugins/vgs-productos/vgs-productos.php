@@ -1,8 +1,9 @@
 <?php
 /**
- * Registra los tipos de contenido personalizados del tema.
- *
- * @package VGS_WordPress_Test
+ * Plugin Name: VGS Productos
+ * Description: Registra el Custom Post Type Productos para la prueba técnica de VGS.
+ * Version: 1.0.0
+ * Author: Isaac Carrasquel
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Registra el tipo de contenido Productos.
+ * Registra el Custom Post Type Productos.
  */
 function vgs_register_productos_cpt() {
 
@@ -30,15 +31,15 @@ function vgs_register_productos_cpt() {
 	);
 
 	$args = array(
-		'labels'             => $labels,
-		'public'             => true,
-		'show_in_rest'       => true,
-		'menu_icon'          => 'dashicons-cart',
-		'has_archive'        => true,
-		'rewrite'            => array(
+		'labels'       => $labels,
+		'public'       => true,
+		'show_in_rest' => true,
+		'menu_icon'    => 'dashicons-cart',
+		'has_archive'  => true,
+		'rewrite'      => array(
 			'slug' => 'productos',
 		),
-		'supports'           => array(
+		'supports'     => array(
 			'title',
 			'editor',
 			'thumbnail',
@@ -47,5 +48,4 @@ function vgs_register_productos_cpt() {
 
 	register_post_type( 'producto', $args );
 }
-
 add_action( 'init', 'vgs_register_productos_cpt' );
