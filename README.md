@@ -21,6 +21,8 @@ Se ha registrado un Custom Post Type llamado **Productos** con soporte para:
 * Descripción
 * Imagen destacada
 
+La gestión del CPT fue desacoplada del tema mediante un plugin personalizado.
+
 ### Home personalizada
 
 Se ha desarrollado una página de inicio basada en el diseño proporcionado en Figma.
@@ -78,7 +80,20 @@ Copiar la carpeta del tema dentro de:
 wp-content/themes/
 ```
 
-### 3. Instalar dependencias
+### 3. Copiar el plugin personalizado
+
+Copiar la carpeta:
+
+```text
+plugins/vgs-productos/
+```
+dentro de: 
+
+```text
+wp-content/plugins/
+```
+
+### 4. Instalar dependencias
 
 Desde la carpeta del tema:
 
@@ -86,19 +101,19 @@ Desde la carpeta del tema:
 npm install
 ```
 
-### 4. Ejecutar entorno de desarrollo
+### 5. Ejecutar entorno de desarrollo
 
 ```bash
 npm run dev
 ```
 
-### 5. Generar assets para producción
+### 6. Generar assets para producción
 
 ```bash
 npm run build
 ```
 
-### 6. Activar el tema
+### 7. Activar el tema
 
 Desde el panel de administración de WordPress:
 
@@ -110,6 +125,14 @@ Activar:
 
 ```text
 VGS WordPress Test
+```
+
+### 8. Activar el plugin personalizado
+
+Desde el panel de administración de WordPress:
+
+```text
+Plugins → Plugins instalados → VGS Productos
 ```
 
 ---
@@ -155,8 +178,28 @@ template-parts/
 * Se empleó Tailwind CSS para la maquetación.
 * No se utilizaron Page Builders.
 * Los productos fueron implementados mediante un Custom Post Type.
-* El CPT Productos fue registrado mediante código en `inc/post-types.php`.
+* El CPT Productos fue implementado mediante un plugin personalizado para separar la lógica de negocio de la capa de presentación.
 * Se priorizó una estructura modular basada en componentes reutilizables para facilitar el mantenimiento y la escalabilidad del proyecto.
+
+---
+
+## Plugin personalizado
+
+Como punto extra, se creó un plugin personalizado para registrar el Custom Post Type Productos.
+
+Ruta:
+
+```text
+plugins/vgs-productos/vgs-productos.php
+```
+
+El plugin registra el CPT `producto` con soporte para:
+
+- Título
+- Descripción
+- Imagen destacada
+
+Esta implementación permite desacoplar la gestión del contenido de la capa de presentación, manteniendo el tema enfocado exclusivamente en la interfaz de usuario.
 
 ---
 
